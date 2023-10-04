@@ -1,1 +1,2 @@
 This is the feature branch, created by Olena Gofman. 
+This line2 added to create a conflict. 
