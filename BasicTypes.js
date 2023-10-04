@@ -64,4 +64,3 @@ const myVarsObj = {
   objNames: ["name_1", "name_2", "name_3"],
 };
 let myObjVar = myVarsObj.objNames[1];
-
