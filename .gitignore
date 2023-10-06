@@ -1,3 +1,6 @@
-cypress
+my-cypress-project/cypress/support
+my-cypress-project/cypress/fixtures
+my-cypress-project/cypress/e2e/1-getting-started
+my-cypress-project/cypress/e2e/2-advanced-examples
 cypress.config.js
 .DS_Store
