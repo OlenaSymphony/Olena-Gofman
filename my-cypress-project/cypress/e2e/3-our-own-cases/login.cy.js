@@ -9,7 +9,7 @@ const inventoryPage = new InventoryPage()
 describe('sauce demo login page', () => {
   it.only('verifies that a user is able to correctly login to the site ', () => {
     loginPage.login('standard_user', 'secret_sauce')
-    inventoryPage.getPageTitle().should('exist').and('have.text', ('Products'))
+    inventoryPage.getPageTitle().should('be.visible').and('have.text', ('Products'))
   })
   it.only('verifies that a user is NOT able to login with invalid password', () => {
     loginPage.login('standard_user', 'test')
