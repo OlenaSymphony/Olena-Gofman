@@ -20,4 +20,7 @@ export default class LoginPage {
         this.fillPassword(password)
         this.clickSubmit()
     }
+    getErrorMessage() {
+        return cy.get('[data-test="error"]')
+    }
 }
