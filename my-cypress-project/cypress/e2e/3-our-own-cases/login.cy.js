@@ -19,4 +19,8 @@ describe('sauce demo login page', () => {
     loginPage.login('{backspace}', 'secret_sauce')
     loginPage.getErrorMessage().should('have.text', 'Epic sadface: Username is required')
   })
+  it.only('verifies that a user is NOT able to login with empty password', () => {
+    loginPage.login('standard_user', '{backspace}')
+    loginPage.getErrorMessage().should('have.text', 'Epic sadface: Password is required')
+  })
 })
