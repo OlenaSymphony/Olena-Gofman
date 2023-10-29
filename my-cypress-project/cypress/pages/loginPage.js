@@ -6,10 +6,10 @@ export default class LoginPage {
 
     }
     fillUsername(username) {
-        cy.get('[data-test="username"]').type(username)
+        cy.get('[data-test="username"]').type(username, {log:false})
     }
     fillPassword(password) {
-        cy.get('[data-test="password"]').type(password)
+        cy.get('[data-test="password"]').type(password, {log:false})
     }
     clickSubmit() {
         cy.get('#login-button').click()
