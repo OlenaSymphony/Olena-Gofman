@@ -6,9 +6,9 @@ export default class LoginPage {
             username: "OlenaGofman" + new Date().getTime(),
             password: "secret",
             confirmPassword: "secret"
+
         }
     }
-
     openRealWorldApp() {
         cy.visit('http://localhost:3000/')
 
@@ -74,8 +74,20 @@ export default class LoginPage {
         cy.getByClassLike('MuiGrid-root').should('be.visible')
         cy.get('.MuiSlider-track').click('center')
         cy.getBySel('transaction-list-filter-amount-range-text').should('have.text', 'Amount Range: $0 - $500')
-
-
-
+    }
+    openMyAccount() {
+        cy.getBySelLike('sidenav-user-settings').click()
+        cy.get('.MuiPaper-root > .MuiTypography-root').should('have.text', 'User Settings')
+    }
+    verifyErrorForEmptyField(fieldName, errorMessage) {
+        cy.getBySel(`user-settings-${fieldName}-input`).clear()
+        this.getErrorMessage(`#user-settings-${fieldName}-input-helper-text`, errorMessage)
+    }
+    verifyErrorForInvalidFormat(fieldName, errorMessage) {
+        cy.getBySel(`user-settings-${fieldName}-input`).type('a')
+        this.getErrorMessage(`#user-settings-${fieldName}-input-helper-text`, errorMessage)
+    }
+    getErrorMessage(errorContainer, errorMessage) {
+        cy.get(errorContainer).should('have.text', errorMessage)
     }
 }

@@ -14,13 +14,20 @@ describe('Real World App functionality', () => {
     realWordAppPage.makeNewTransaction('Kaylin Homenick', 5)
   })
 
-  it('verifies that current date can be selected via datepicker on the Home screen', () => {
+  it('verifies that User can inrerract with datepicker', () => {
     realWordAppPage.navigateToHomePage()
     realWordAppPage.selectCurrentDate()
   })
 
-  it.only('verifies that desired $ amount range can be selected via slider on the Home screen', () => {
+  it('verifies that User can inrerract with amount range slider', () => {
     realWordAppPage.navigateToHomePage()
     realWordAppPage.changeAmountRange()
   })
+
+  it('verifies that User can scoll the transactions feed', () => {
+    realWordAppPage.navigateToHomePage()
+    cy.get('footer').scrollIntoView().should('be.visible')
+    //The test needs to be completed, got stuck with it
+  })
+
 })
