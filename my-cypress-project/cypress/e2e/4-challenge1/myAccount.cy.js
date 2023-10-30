@@ -20,7 +20,7 @@ describe('Real World App functionality', () => {
     realWordAppPage.verifyErrorForEmptyField('firstName', 'Enter a first name')
   })
 
-  it('verifies that second username cannot be blank in User Setting', () => {
+  it('verifies that last username cannot be blank in User Setting', () => {
     realWordAppPage.navigateToHomePage()
     realWordAppPage.openMyAccount()
     realWordAppPage.verifyErrorForEmptyField('lastName', 'Enter a last name')
