@@ -37,5 +37,10 @@ describe('Real World App functionality', () => {
     realWordAppPage.openMyAccount()
     realWordAppPage.verifyErrorForInvalidFormat('phoneNumber', 'Phone number is not valid')
   })
+  it('verifies that user information can be updated correctly in User Setting', () => {
+    realWordAppPage.navigateToHomePage()
+    realWordAppPage.openMyAccount()
+    realWordAppPage.updateUserInformation('Test', 'User', 'test@test.com', '987654321')
+  })
 
 })

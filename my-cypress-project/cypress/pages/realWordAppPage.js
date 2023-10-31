@@ -90,4 +90,18 @@ export default class LoginPage {
     getErrorMessage(errorContainer, errorMessage) {
         cy.get(errorContainer).should('have.text', errorMessage)
     }
+    updateUserInformation(newFirstName, newLastName, newEmailAddress, newPhoneNumber) {
+        cy.getBySel('user-settings-firstName-input').clear().type(newFirstName)
+        cy.getBySel('user-settings-lastName-input').clear().type(newLastName)
+        cy.getBySel('user-settings-email-input').type(newEmailAddress)
+        cy.getBySel('user-settings-phoneNumber-input').type(newPhoneNumber)
+        cy.getBySelLike('user-settings-submit').click()
+        cy.getBySelLike('sidenav-home').click()
+        cy.get('.MuiListSubheader-root').should('have.text', 'Public')
+        this.openMyAccount()
+        cy.getBySel('user-settings-firstName-input').should('have.value', newFirstName)
+        cy.getBySel('user-settings-lastName-input').should('have.value', newLastName)
+        cy.getBySel('user-settings-email-input').should('have.value', newEmailAddress)
+        cy.getBySel('user-settings-phoneNumber-input').should('have.value', newPhoneNumber)
+    }
 }
