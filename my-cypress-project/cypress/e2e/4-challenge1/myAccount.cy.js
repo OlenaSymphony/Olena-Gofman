@@ -30,6 +30,7 @@ describe('Real World App functionality', () => {
   it('verifies that invalid phone is not accepted in User Setting', () => {
     realWordAppPage.verifyErrorForInvalidFormat('phoneNumber', 'Phone number is not valid')
   })
+  
   it('verifies that user information can be updated correctly in User Setting', () => {
     realWordAppPage.updateUserInformation('Test', 'User', 'test@test.com', '987654321')
   })
