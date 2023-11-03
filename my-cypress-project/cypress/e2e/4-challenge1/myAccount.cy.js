@@ -3,11 +3,13 @@
 import RealWordAppPage from "../../pages/realWordAppPage"
 
 let realWordAppPage;
+realWordAppPage = new RealWordAppPage()
 
 describe('Real World App functionality', () => {
   beforeEach(() => {
-    realWordAppPage = new RealWordAppPage()
-    realWordAppPage.navigateToHomePage()
+    realWordAppPage.openRealWorldApp()
+    realWordAppPage.signIn()
+    cy.intercept("PATCH", "/users/*").as("updateUser")
     realWordAppPage.openMyAccount()
   })
 

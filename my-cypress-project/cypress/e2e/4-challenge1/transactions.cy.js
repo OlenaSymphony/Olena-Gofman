@@ -3,11 +3,12 @@
 import RealWordAppPage from "../../pages/realWordAppPage"
 
 let realWordAppPage;
+realWordAppPage = new RealWordAppPage()
 
 describe('Real World App functionality', () => {
   beforeEach(() => {
-    realWordAppPage = new RealWordAppPage()
-    realWordAppPage.navigateToHomePage()
+    realWordAppPage.openRealWorldApp()
+    realWordAppPage.signIn()
   })
 
   it('verifies that the network request status for transactions is 200', () => {
@@ -22,9 +23,8 @@ describe('Real World App functionality', () => {
     realWordAppPage.changeAmountRange()
   })
 
-  it('verifies that User can scoll the transactions feed', () => {
-    cy.get('footer').scrollIntoView().should('be.visible')
-    //The test needs to be completed, got stuck with it
+  it('verifies that the application correctly renders and paginates all transaction feeds.', () => {
+    realWordAppPage.paginateTransactions()
   })
 
 })
